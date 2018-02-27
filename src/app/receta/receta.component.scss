@@ -3,6 +3,10 @@
         font-size: 1em;
     }
 
+    a{
+        text-decoration: none;
+    }
+
     .gluten_icon{
         position: absolute;
         top: 4%;
@@ -19,11 +23,23 @@
         float: right;
     }
 
-   .ingredientes{
-        h4{
-            border-top: 1px solid grey;
-            border-bottom:1px solid grey;
-            padding: 5px 0;
+   .panel-title {
+        text-decoration: none;
+        color: black;
+        text-align: center;
+        text-transform: uppercase;
         }
-   }
+
+    h4.panel-title:hover {
+        text-decoration: none;
+        }
+
+    .badge{
+        float:left;
+        }
+    
+    span.glyphicon-chevron-down,
+    span.glyphicon-chevron-down{
+        float: right;
+    }
 }

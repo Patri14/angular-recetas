@@ -9,12 +9,28 @@
           <p> {{descripcion | slice:0:50}}...</p>
           <span class="cocinero">{{cocinero}}</span>
           <span class="label label-primary" (click)="sumarLike()"><span class="glyphicon glyphicon-heart"></span> {{likes}}</span>
-          <h4>Ingredientes</h4>
-          <section class="ingredientes">
-          <ol>
-            <li *ngFor="let ingreIndividual of ingredientes">{{ingreIndividual}}</li>
-          </ol>
-          </section>
+          
+          <!--lista desplegable-->
+          
+            <div class="panel-group">
+              <div class="panel panel-default">
+                  <a data-toggle="collapse" href="#collapse1">
+                <div class="panel-heading">
+                  <h4 class="panel-title">
+                      <span class="badge">4</span> Ingredientes 
+                      <span class="glyphicon glyphicon-chevron-down" *ngIf="arrowUpDown"></span>
+                     <span class="glyphicon glyphicon-chevron-up" *ngIf="!arrowUpDown">
+                      </span>
+                  </h4>
+                </div></a>
+                <div id="collapse1" class="panel-collapse collapse">
+                  <div class="panel-body" *ngFor="let ingreIndividual of ingredientes">{{ingreIndividual}}</div>
+                </div>
+              </div>
+            </div>
+          
+         <!--end lista desplegable-->
+          
         </div>
       </div>
     </div>

@@ -15,6 +15,7 @@ export class RecetaComponent implements OnInit {
   isGlutenFree:boolean;
   cocinero:string;
   ingredientes:string[];
+  arrowUpDown:boolean;
 
 //en el constructor siempre se inicializan los atributos
   constructor() {
@@ -26,6 +27,7 @@ export class RecetaComponent implements OnInit {
     this.isGlutenFree= true;
     this.cocinero= "Karlos Arguiñano";
     this.ingredientes=["calamares", "limón","harina","pan"];
+    this.arrowUpDown=true;
    }
 
   ngOnInit() {
