@@ -1,0 +1,29 @@
+.thumbnail{
+    p{
+        font-size: 1em;
+    }
+
+    .gluten_icon{
+        position: absolute;
+        top: 4%;
+        left: 77%;
+        width: 14%;
+    }
+    
+    span.cocinero{
+        font-weight: 600;
+        font-size: 1.5em;
+    }
+
+    span.label{
+        float: right;
+    }
+
+   .ingredientes{
+        h4{
+            border-top: 1px solid grey;
+            border-bottom:1px solid grey;
+            padding: 5px 0;
+        }
+   }
+}
