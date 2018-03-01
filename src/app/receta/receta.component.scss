@@ -1,3 +1,6 @@
+.row{
+    padding-top: 125px;
+}
 .thumbnail{
     p{
         font-size: 1em;
@@ -23,23 +26,27 @@
         float: right;
     }
 
-   .panel-title {
-        text-decoration: none;
-        color: black;
-        text-align: center;
-        text-transform: uppercase;
-        }
-
-    h4.panel-title:hover {
-        text-decoration: none;
-        }
-
-    .badge{
-        float:left;
+    .ingredientes{
+ 
+        h4{
+            text-align: center;
+            font-size: 1.2em;
+            padding: 5px 0;
+            border-top: 1px solid grey;
+            border-bottom: 1px solid grey;
+    
+            &:hover{
+                background-color: greenyellow;
+                cursor: pointer;
+            }
         }
     
-    span.glyphicon-chevron-down,
-    span.glyphicon-chevron-down{
-        float: right;
+        span.glyphicon{
+            float: right;
+            margin-right: 10px;
+        }
+        
     }
+
+
 }

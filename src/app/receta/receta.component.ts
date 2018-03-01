@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Receta } from '../model/receta'
 @Component({
   selector: 'app-receta',
   templateUrl: './receta.component.html',
@@ -8,26 +8,28 @@ import { Component, OnInit } from '@angular/core';
 export class RecetaComponent implements OnInit {
 
   //atributos
-  nombre:string;
-  foto:string;
-  likes:number;
-  descripcion:string;
-  isGlutenFree:boolean;
-  cocinero:string;
-  ingredientes:string[];
-  arrowUpDown:boolean;
 
+  arrowUpDown:boolean;
+  glyphicon:string;
+  isCollapsed:boolean;
+  show:boolean;
+
+  receta: Receta;
+  
 //en el constructor siempre se inicializan los atributos
   constructor() {
     console.log('RecetaComponent constructor');
-    this.nombre = 'Bocata de calamares';
-    this.foto = 'https://masdemadrid.com/wp-content/uploads/2017/03/bocadillo-calamares-560x314.jpg';
-    this.likes = 23;
-    this.descripcion = 'Más que la pepitoria, las bravas, e incluso que los callos, los bocatas de calamares son el símbolo culinario de Madrid. Rápidos, baratos y proletarios, a fuerza de alimentar buches e ilusiones en la posguerra se convirtieron en un icono de la ciudad: el bocado más castizo';
-    this.isGlutenFree= true;
-    this.cocinero= "Karlos Arguiñano";
-    this.ingredientes=["calamares", "limón","harina","pan"];
-    this.arrowUpDown=true;
+  
+    this.arrowUpDown = true;
+    this.show = false;
+    this.glyphicon = "glyphicon-chevron-down";
+
+    this.receta = new Receta('Marmitako','Karlos Arguiñano');
+    this.receta.addIngrediente('bonito');
+    this.receta.addIngrediente('pimiento verde');
+    this.receta.addIngrediente('aceite');
+    this.receta.addIngrediente('pimiento choricero');
+    this.receta.addIngrediente('patatas');
    }
 
   ngOnInit() {
@@ -37,9 +39,15 @@ export class RecetaComponent implements OnInit {
   }
 
   sumarLike(){
-    this.likes++;
-    console.log(this.likes++);
+    this.receta.likes++;
+    console.log(this.receta.likes);
     
+  }
+
+  showIngredientes(){
+    console.log('Click showIngredientes');
+    this.show = !this.show;
+    this.glyphicon = ( this.show )?'glyphicon-chevron-up':'glyphicon-chevron-down';
   }
 
 }

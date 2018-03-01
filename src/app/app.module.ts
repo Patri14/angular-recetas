@@ -1,18 +1,27 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+//nuestro módulo para navegación
+import { AppRoute } from './app.route';
+
 
 import { AppComponent } from './app.component';
 import { RecetaComponent } from './receta/receta.component';
+import { PropiedadesComponent } from './propiedades/propiedades.component';
+import { Page404Component } from './page404/page404.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    RecetaComponent
-  ],
+    RecetaComponent,
+    PropiedadesComponent,
+    Page404Component,
+    HomeComponent  ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoute
   ],
   providers: [],
   bootstrap: [AppComponent]
