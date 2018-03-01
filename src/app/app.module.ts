@@ -9,7 +9,8 @@ import { AppComponent } from './app.component';
 import { RecetaComponent } from './receta/receta.component';
 import { PropiedadesComponent } from './propiedades/propiedades.component';
 import { Page404Component } from './page404/page404.component';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './home/home.componen;
+import { UsuarioComponent } from './usuario/usuario.component't';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { HomeComponent } from './home/home.component';
     RecetaComponent,
     PropiedadesComponent,
     Page404Component,
-    HomeComponent  ],
+    HomeCompone,
+    UsuarioComponentnt  ],
   imports: [
     BrowserModule,
     AppRoute

@@ -25,6 +25,8 @@ export class RecetaComponent implements OnInit {
     this.glyphicon = "glyphicon-chevron-down";
 
     this.receta = new Receta('Marmitako','Karlos Arguiñano');
+    this.receta.foto = '../../assets/img/marmitako.jpg';
+    this.receta.descripcion = 'El marmitako es un guiso de bonito y patatas típico del verano en Euskadi.'
     this.receta.addIngrediente('bonito');
     this.receta.addIngrediente('pimiento verde');
     this.receta.addIngrediente('aceite');
