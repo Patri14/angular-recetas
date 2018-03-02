@@ -20,9 +20,9 @@ export class ListadoComponent implements OnInit {
     //función para emitir el evento desde el hijo hasta el padre
     seleccionar($event, coche: Coche){
 
-      console.log('ListadoComponent emitimos evento al padre %o ', this.eventoEmitir);
+      console.log('ListadoComponent emitimos evento al padre %o ', coche);
       //al evento que emito le paso el propio coche, el parámetro que le paso del hijo al padre
-      this.eventoEmitir.emit({coche: this.eventoEmitir});
+      this.eventoEmitir.emit({coche: coche});
       
       
     }
