@@ -37,36 +37,3 @@ export class Receta{
     }
 }
 
-/*clase para encapsular los atributos de un usuario */
-
-export class Usuario{
-
-    //atributos
-    id:number;
-    nombre:string;
-    apellido:string;
-    email:string;
-    avatar:string;
-    
-   
-
-    //constructor, sólo es posible un constructor
-    /*el segundo parámetro sirve para que por defecto salga anónimo */
-    constructor(nombre:string){
-        console.log('receta constructor');
-        
-        //inicializamos las variables
-        this.id = -1;
-        this.nombre = nombre;
-        this.avatar = 'assets/img/receta_default.jpg';
-        this.email = '';
-   
-
-        //llamada al método
-        
-
-    }
-
-    //métodos
-   
-}

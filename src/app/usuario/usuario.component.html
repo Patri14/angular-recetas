@@ -1,3 +1,19 @@
-<p>
-  usuario works!
-</p>
+<!-- para depurar {{usuario | json}}-->
+
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+    
+      <img src="{{usuario.avatar}}" alt="{{usuario.nombreUser}}">
+      <div class="caption">
+        <h3>{{usuario.nombreUser}}</h3>
+        <h2>{{usuario.apellido}}</h2>
+        <p> {{usuario.email}}</p>
+        <p> {{usuario.sexo}}</p>
+        <span class="cocinero">{{usuario.id}}</span>
+     
+     
+      </div>
+    </div>
+  </div>
+</div>

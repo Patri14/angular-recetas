@@ -9,8 +9,11 @@ import { AppComponent } from './app.component';
 import { RecetaComponent } from './receta/receta.component';
 import { PropiedadesComponent } from './propiedades/propiedades.component';
 import { Page404Component } from './page404/page404.component';
-import { HomeComponent } from './home/home.componen;
-import { UsuarioComponent } from './usuario/usuario.component't';
+import { HomeComponent } from './home/home.component';
+import { UsuarioComponent } from './usuario/usuario.component';
+import { CocheComponent } from './concesionario/coche/coche.component';
+import { ConcesionarioComponent } from './concesionario/concesionario.component';
+import { ListadoComponent } from './concesionario/listado/listado.component';
 
 
 @NgModule({
@@ -19,8 +22,11 @@ import { UsuarioComponent } from './usuario/usuario.component't';
     RecetaComponent,
     PropiedadesComponent,
     Page404Component,
-    HomeCompone,
-    UsuarioComponentnt  ],
+    HomeComponent,
+    UsuarioComponent,
+    CocheComponent,
+    ConcesionarioComponent,
+    ListadoComponent  ],
   imports: [
     BrowserModule,
     AppRoute
