@@ -2,6 +2,8 @@
 <p>Aprender a pasar párametros de uno a otro con @input y @output</p>
 
 
+
+
 <nav aria-label="Page navigation">
     <ul class="pagination">
         <li *ngFor="let coche of stock" [class.active]="coche==coche1">
@@ -10,7 +12,7 @@
     </ul>
 </nav>
 
-<div class="col-md-2">
+<div class="col-md-4">
 <div class="panel panel-default">
         <div class="panel-heading">
             <h3 class="panel-title">Catálogo de coches</h3>
@@ -30,7 +32,7 @@
     </div>
 </div>
 
-<div class="col-md-10">
+<div class="col-md-8">
 <div class="panel panel-default">
     <div class="panel-heading">
         <h3 class="panel-title">Comparador</h3>
@@ -38,10 +40,8 @@
     
     <div class="panel-body">
             <!--llamada componente hijo-->
-            <app-coche [cocheParametro]="coche1">
-            </app-coche>
-            <app-coche [cocheParametro]="coche2">
-            </app-coche>
+            <app-coche [c1]="coche1" [c2]="coche2"></app-coche>
+            <app-coche [c1]="coche2" [c2]="coche1"></app-coche>
      
 
     </div>

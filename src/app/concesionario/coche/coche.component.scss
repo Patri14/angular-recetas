@@ -1,3 +1,20 @@
-.listado .thumbnail .caption h3{
-    font-size: 1.2em;
+.thumbnail .caption{
+    
+    font-family: 'Mina', sans-serif;
+
+    h3{
+        font-size: 2em;
+        text-align: center;
+    }
+
+    p{
+        font-size: 1.4em;
+        text-align: center;
+    }
 }
+
+.thumbnail img {
+    height:200px;
+    width:100%;
+}
+

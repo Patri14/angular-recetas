@@ -1,26 +1,30 @@
 export class Coche{
-    id: number;
-    marca: string;
-    modelo: string;
-    version: string;
-    foto:string;
 
-    //características
-    puertas: number;
+    id : number;
+    marca : string;
+    modelo : string;
+    version : string;
+    foto : string;
+
+    //caracteristicas
+    puertas : number;
     caballos: number;
     consumo: number;
-
-
-//si ponemos el interrogante al parametro es q es opcional
-    constructor (marca:string,  modelo:string, version?:string){
-        this.id= -1;
+    
+    constructor( marca:string , modelo:string, puertas:number, foto?:string, version?:string, caballos?:number, consumo?:number ,id?:number ){
+        this.id = id;
         this.marca = marca;
         this.modelo = modelo;
         this.version = version;
-        this.foto = 'assets/img/coche_default.jpg';
+        if ( foto ){
+            this.foto = foto;
+        }else{
+            this.foto = 'assets/img/coche_default.jpg';
+        }    
+        this.puertas = puertas;
+        this.caballos = caballos;
+        this.consumo = consumo;
 
-        this.puertas = 0;
-        this.caballos = 0;
-        this.consumo = 0;
     }
+
 }

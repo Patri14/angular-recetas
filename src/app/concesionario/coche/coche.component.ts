@@ -9,17 +9,14 @@ import { Coche } from '../../model/coche';
 })
 export class CocheComponent implements OnInit {
 
-  //parámetro de entrada desde componente padre al hijo
-  @Input('cocheParametro') coche: Coche;
-
+   //Parametro de Entrada desde el Componete Padre al Hijo
+   @Input('c1') c1 : Coche; // coche para mostrar
+   @Input('c2') c2 : Coche; // coche para comparar
+   constructor() {
+     console.log('CocheComponent constructor');
+   }
  
-
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-
-
-}
+   ngOnInit() {
+     console.log('CocheComponent ngOnInit');
+   }
+  } 

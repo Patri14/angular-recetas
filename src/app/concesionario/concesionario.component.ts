@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Coche } from '../model/coche';
+import { CochesService } from '../providers/coches.service';
 
 @Component({
   selector: 'app-concesionario',
@@ -12,37 +13,41 @@ export class ConcesionarioComponent implements OnInit {
   coche1: Coche;
   coche2: Coche;
 
-  constructor() { 
-    console.log('ConcesionarioComponent constructor');
+  //en el constructor inicializamos los atributos
+  constructor( public cochesService: CochesService) { 
+    
+    console.log('ConcesionarioComponent constructor');     
 
+    this.coche1 = new Coche('coche1','',4);
+    this.coche2 = new Coche('coche2','',4);
     this.stock = new Array<Coche>();
-    this.stock.push (new Coche('Seat', 'Panda'));
-    this.stock.push (new Coche('Toyota', 'Verso'));
-    this.stock.push (new Coche('Opel', 'Corsa', '1.7'));
-    this.coche1 = new Coche('','');
-    this.coche2 = new Coche('','');
+
+
+    /******ESTOS DATOS NOS LO PROVEE EL SERVICE*******/
+    // this.stock = new Array<Coche>();
+    // this.stock.push (new Coche('Seat', 'Panda'));
+    // this.stock.push (new Coche('Toyota', 'Verso'));
+    // this.stock.push (new Coche('Opel', 'Corsa', '1.7'));
+    // this.coche1 = new Coche('','');
+    // this.coche2 = new Coche('','');
+
   }
 
+
+  //llamadas a los servicios
   ngOnInit() {
+    
+    console.log('ConcesionarioComponent ngOnInit');    
+    this.stock = this.cochesService.getAll();
+
   }
 
   recibirCoche(event){
 
-    console.log('ConcesionarioComponent recibe el coche %o', event.coche);
+  console.log('ConcesionarioComponent: recibirCoche %o %i', event.coche , event.otroParametro);               
+    this.coche2 = this.coche1;
+    this.coche1 = event.coche;  
   
-    if(this.coche1.marca == ''){
-      
-      this.coche1 = event.coche;
-    
-    }else{
-
-      this.coche2 = this.coche1;
-      this.coche1 = event.coche;
-
-    }
-     
-  
-    
   }
 
 }

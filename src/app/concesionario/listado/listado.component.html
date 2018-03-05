@@ -1,5 +1,8 @@
-<ul class="pagination">
-    <li *ngFor="let coche of stock" (click)="seleccionar($event, coche)">
+
+<input [(ngModel)]="searchText" placeholder="Busca tu coche">
+
+<ul class="list-group">
+    <li *ngFor="let coche of stock | filter: searchText" (click)="seleccionar($event, coche)" class="list-group-item"  [class.active]="coche==coche1 || coche==coche2">
         <a>{{coche.marca}} {{coche.modelo}} </a>
     </li>
-</ul>
+  </ul>
