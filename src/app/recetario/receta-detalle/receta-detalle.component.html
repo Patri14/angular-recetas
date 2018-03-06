@@ -1,21 +1,37 @@
 <!--RECETA DETALLE-->
-<div class="col-sm-12 col-md-12" 
-     (click)="seleccionar($event)">
+
+<!--{{receta | json}}-->
 
 
-    <div class="col-md-6">
-        <img src="{{c1.foto}}" alt="foto {{c1.marca}} {{c1.modelo}}">
-        <h3>Nombre</h3>
-    </div>
-
-    <div class="col-md-6">
-        <div>INgredientes</div>
-        <h4>Cocinero</h4>
-    </div>
-
-    <div class="col-md-12">
-            <h3>Descripción</h3>
-            <p></p>
-    </div>
+<div class="col-sm-6 col-md-6">
+        <div class="para_gluten">
+                <img class="gluten_icon" *ngIf="receta.isGlutenFree" src="assets\img\gluten_free_icon.png" alt="icono con gluten">
+                <img class="gluten_icon" *ngIf="!receta.isGlutenFree" src="assets\img\gluten_icon.png" alt="icono sin gluten">
+        </div>
+                <img src="{{receta.foto}}" alt="{{receta.nombre}}">
+</div>
+                
+<div class="col-sm-6 col-md-6">
+   
+    <img src="../../../assets/img/about-border.png" alt="">
+    
+        <div class="box-ingredients">
+                <h4><span class="title-line">Ingredientes</span></h4>
+                <ul>
+                        <li *ngFor="let ingredientes of receta.ingredientes">{{ingredientes}}</li> 
+                </ul>
+        </div>           
 </div>
 
+<div class="col-md-6">
+        <h2>{{receta.nombre}}</h2>
+</div>
+
+<div class="col-md-6">
+        <h3><img  class="gorro" src="../../../assets/img/gorro.png"> {{receta.cocinero}}     <span class="glyphicon glyphicon-heart">{{receta.likes}} </span></h3>       
+</div>
+
+<div class="col-md-12">
+        <p>{{receta.descripcion}}.</p>
+</div>
+              

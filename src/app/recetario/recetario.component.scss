@@ -13,4 +13,17 @@
     }
 }
 
+li {
+   
+    a{
+        text-decoration: none;
+        cursor: pointer;
+        font-family: 'Mina', sans-serif;
+    }
+
+}
+
+.active a{
+    color:white;
+} 
 

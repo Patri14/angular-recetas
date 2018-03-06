@@ -1,35 +1,39 @@
 <div class="container">
-<h1>Recetario</h1>
+    <h1>Recetario</h1>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Listado de recetas</h3>
+                </div>
+                
+                <div class="panel-body">
+                    <div>
+                        <input [(ngModel)]="searchText" placeholder="Busca tu receta">
+                        <ul class="list-group">
+                           
+                            <li *ngFor="let receta of aReceta | filter: searchText" class="list-group-item" (click)="seleccionarReceta(receta)" >
+                                <a>{{receta.nombre}} </a>
+                            </li>
+                        </ul>
+                    </div>
+            
+                </div>
+            </div>
+        </div>
 
-<div class="col-md-4">
-<div class="panel panel-default">
-      <div class="panel-heading">
-          <h3 class="panel-title">Listado de recetas</h3>
-      </div>
-      
-      <div class="panel-body">
-          
-          <div>
-           
-          </div>
-  
-      </div>
-  </div>
-</div>
-
-<div class="col-md-8">
-<div class="panel panel-default">
-  <div class="panel-heading">
-      <h3 class="panel-title">Detalle receta</h3>
-  </div>
-  
-  <div class="panel-body">
-          <!--llamada componente hijo-->
-          <app-receta-detalle></app-receta-detalle>
-         
-   
-
-  </div>
-</div>
-</div>
+        <div class="col-md-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Detalle receta</h3>
+                </div>
+                
+                <div class="panel-body">
+                       
+                       <app-receta-detalle [recetaDelInput]="recetaSelec"></app-receta-detalle>
+                        
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

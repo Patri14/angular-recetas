@@ -1,0 +1,121 @@
+
+.active a{
+    color:white;
+} 
+
+.no-padding {
+    padding: 0;
+}
+
+.about-left-img {
+    text-align: center;
+    padding-right: 30px;
+}
+.move-up.animated {
+    top: 0;
+    opacity: 1;
+}
+.move-up {
+    top: 30px;
+    opacity: 0;
+}
+.animate-in {
+    -webkit-transition: all .7s ease-in-out .2s;
+    -moz-transition: all .7s ease-in-out .2s;
+    -o-transition: all .7s ease-in-out .2s;
+    -ms-transition: all .7s ease-in-out .2s;
+    transition: all .7s ease-in-out .2s;
+}
+
+img {
+    margin-top: 30px;
+    max-width: 100%;
+}
+
+h2 {
+    font-family: 'Rancho', cursive;
+    color: #385e01;
+    font-size: 3em;
+    margin-bottom: 25px;
+    text-transform: capitalize;
+    text-align: center;
+}
+
+h3{
+    font-family: 'Rancho', cursive;
+}
+
+p {
+    color: #5d473a;
+}
+
+.gorro{
+    max-width: 15%;
+    margin-top: 0px;
+}
+
+//ingredientes
+.box-ingredients > h4 {
+    font-family: 'Rancho', cursive;
+    font-weight: 400;
+    text-align: center;
+    position: relative;
+    z-index: 99;
+    margin: 20px 0;
+    font-size: 2em;
+}
+
+.box-ingredients > h4::before {
+    border-top: 1px solid #e6d79d;
+    content: " ";
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+h3 > .title-line, h4 > .title-line {
+    background: #fff;
+    padding: 0 15px;
+    z-index: 1;
+}
+
+ .box-ingredients > ul {
+    list-style: none;
+    padding: 0;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.box-ingredients > ul > li {
+    color: #666;
+    font-size: 14px;
+    line-height: 35px;
+    border-bottom: 1px solid #f2e8c2;
+}
+
+
+//likes
+.content .entry-footer {
+    margin-bottom: 30px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+//gluten 
+.para_gluten{
+    position: relative;
+}
+.gluten_icon{
+    position: absolute;
+    top: 4%;
+    left: 77%;
+    width: 14%;
+}
+
+
+
+
+
