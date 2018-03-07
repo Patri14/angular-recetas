@@ -11,17 +11,36 @@ export class RecetaFilter implements PipeTransform {
    * @param aReceta : Recetarecetario[]
    * @param searchText : string con el nombre de la receta 
    */
-  transform(aReceta: RecetaRecetario[], searchText: string): RecetaRecetario[] {
+  transform(recetas: RecetaRecetario[], searchText: string, isGlutenFree : boolean ): RecetaRecetario[] {  
 
-    if(!aReceta) return [];
-    if(!searchText) return aReceta;
-    searchText = searchText.toLowerCase();
-    let nombreReceta = "";
-    return aReceta.filter( recetaIt => {
-        nombreReceta = recetaIt.nombre;        
-        nombreReceta = nombreReceta.toLowerCase();
-        return nombreReceta.includes(searchText);
-    });
-   }
+    //si no hay recetas retornar vacio
+    if (!recetas) return [];
+
+    let recetasFilterArray: RecetaRecetario[] = [];
+
+    //Filtramos si llevan gluten o no
+    if (isGlutenFree) {
+      recetas.forEach(it => {
+        if (it.isGlutenFree) {
+          recetasFilterArray.push(it);
+        }
+      });
+    } else {
+      recetasFilterArray = recetas;
+    }
+
+    //De los que quedan filtramos por texto si hay
+    if (!searchText) {
+      return recetasFilterArray;
+    } else {
+      searchText = searchText.toLowerCase();
+      let receta = '';
+      return recetasFilterArray.filter(it => {
+        receta = it.nombre + it.ingredientes + it.cocinero;
+        receta = receta.toLowerCase();
+        return receta.includes(searchText);
+      });
+    }
+  }
 
 }

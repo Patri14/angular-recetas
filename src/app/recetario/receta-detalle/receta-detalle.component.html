@@ -8,13 +8,11 @@
                 <img class="gluten_icon" *ngIf="receta.isGlutenFree" src="assets\img\gluten_free_icon.png" alt="icono con gluten">
                 <img class="gluten_icon" *ngIf="!receta.isGlutenFree" src="assets\img\gluten_icon.png" alt="icono sin gluten">
         </div>
-                <img src="{{receta.foto}}" alt="{{receta.nombre}}">
+                <img class="img_receta" src="{{receta.foto}}" alt="{{receta.nombre}}">
+                <h2>{{receta.nombre}}</h2>
 </div>
                 
 <div class="col-sm-6 col-md-6">
-   
-    <img src="../../../assets/img/about-border.png" alt="">
-    
         <div class="box-ingredients">
                 <h4><span class="title-line">Ingredientes</span></h4>
                 <ul>
@@ -24,14 +22,19 @@
 </div>
 
 <div class="col-md-6">
-        <h2>{{receta.nombre}}</h2>
+         <ul class="chef">
+                <li>
+                        <span>Cocinero/a</span> 
+                        <span>{{receta.cocinero}}</span>
+                        <span class="glyphicon glyphicon-heart" aria-hidden="true"> {{receta.likes}} </span>     
+                </li>
+        </ul>
 </div>
 
-<div class="col-md-6">
-        <h3><img  class="gorro" src="../../../assets/img/gorro.png"> {{receta.cocinero}}     <span class="glyphicon glyphicon-heart">{{receta.likes}} </span></h3>       
-</div>
+<div class="clearfix"></div>
 
 <div class="col-md-12">
+       <h3>Descripción</h3>
         <p>{{receta.descripcion}}.</p>
 </div>
               

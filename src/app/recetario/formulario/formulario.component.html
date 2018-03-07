@@ -1,0 +1,66 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modalReceta">
+    Crear receta
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="modalReceta" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Nueva receta</h4>
+        </div>
+        <div class="modal-body">
+          <p>valores del formulario: {{formulario.value|json}}</p>
+          <p>estado valido o invalido: {{formulario.status|json}}</p>
+        
+          <hr>
+          <!--asocio el formulario creado en ts al formulario del html-->
+        <form [formGroup]="formulario" (ngSubmit)="enviarReceta($event)">
+            <form [formGroup]="formulario" (ngSubmit)="onSubmit($event)" novalidate class="form-inline">
+
+                <div class="col-xs-6">
+                  <label class="center-block">Nombre:
+                      <input class="form-control" formControlName="nombre">
+                  </label>                           
+                  <div class="text-danger" *ngIf="formulario.controls.nombre.invalid && formulario.controls.nombre.touched">
+                       *El nombre no es correcto, mínimo 2 letras
+                  </div>
+    
+                  <label class="center-block">Cocinero:
+                      <input class="form-control" formControlName="cocinero">
+                  </label>                           
+                  <div class="text-danger" *ngIf="formulario.controls.cocinero.invalid && formulario.controls.cocinero.touched">
+                       *Cocinero no es correcto, mínimo 5 letras
+                  </div>
+                  <div class="form-group radio">
+                      <h4>Gluten:</h4>
+                      <label class="center-block"><input type="radio" formControlName="gluten" value="si">Si</label>
+                      <label class="center-block"><input type="radio" formControlName="gluten" value="no">No</label>
+                  </div>
+                
+                    
+                </div>
+                <div class="col-xs-6">
+                  <img [src]="formulario.controls.foto.value" alt="receta nueva" class="img-responsive"/>
+                  <label class="center-block">Foto:
+                      <input class="form-control" formControlName="foto">
+                  </label>            
+                </div> 
+
+                <div class="col-xs-12">
+                    <label class="center-block">Descripción:
+                        <textarea class="form-control" formControlName="descripcion"></textarea>
+                    </label>  
+                </div>
+              </form>
+    
+
+            <!--deshabilito el boton cuando el formulario no sea válido --> 
+            <input type="submit" [disabled]="!formulario.valid"  class="btn btn-success btn-block" value="Crear"> 
+        </form>
+        </div>
+       </div>
+    </div>
+  </div>

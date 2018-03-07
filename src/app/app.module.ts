@@ -17,15 +17,18 @@ import { ListadoComponent } from './concesionario/listado/listado.component';
 import { FormsModule } from '@angular/forms';
 import { RecetarioComponent } from './recetario/recetario.component';
 import { RecetaDetalleComponent } from './recetario/receta-detalle/receta-detalle.component';
+import { FormularioComponent } from './recetario/formulario/formulario.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 //pipes
 import { FilterPipe } from './pipe/filter.pipe';
 import { RecetaFilter } from './pipe/recetaFilter.pipe';
-import{ RoundPipe } from './pipe/redondear.pipe';
+import { RoundPipe } from './pipe/redondear.pipe';
 
 //services
 import { CochesService } from './providers/coches.service';
 import { RecetarioService } from './providers/recetario.services';
+
 
 
 
@@ -44,12 +47,14 @@ import { RecetarioService } from './providers/recetario.services';
     FilterPipe,
     RecetarioComponent,
     RecetaDetalleComponent,
-    RecetaFilter  
+    RecetaFilter,
+    FormularioComponent  
   ],
   imports: [
     BrowserModule,
     AppRoute,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     CochesService,

@@ -6,6 +6,11 @@ import { element } from 'protractor';
 @Injectable()
 export class RecetarioService {
 
+ //declaro una variable, de tipo array de recetas, y la inicializo vacía
+  aReceta:RecetaRecetario[] = [];
+
+  receta;
+  ingredientes;
 constructor() {
 
   console.log('RecetarioService constructor');
@@ -15,17 +20,13 @@ constructor() {
    /***Retorna todos las recetas que tenemos en recetario***/
 getAll() : RecetaRecetario[]{
     
-  //declaro una variable, de tipo array de recetas, y la inicializo vacía
-    let aReceta:RecetaRecetario[] = [];
-
-    let recetaIndividual;
-    let ingredientes;
+ 
     
     let jsonData = JSON.parse(MOCKS_RECETARIO.recetario);
 
     jsonData.forEach( element => {
 
-        recetaIndividual = new RecetaRecetario( 
+        this.receta = new RecetaRecetario( 
                          
                           element.nombre, 
                           element.cocinero, 
@@ -37,11 +38,19 @@ getAll() : RecetaRecetario[]{
                           element.id
                           
                           );
-                         aReceta.push(recetaIndividual);
+                         this.aReceta.push(this.receta);
 
                         });
                     
-      return aReceta;
+      return this.aReceta;
   
+  }
+
+  /** Crear nueva receta
+   * @param receta : nuevaReceta
+   */
+  crear (receta: RecetaRecetario):void{
+    this.aReceta.unshift(receta);
+
   }
 }

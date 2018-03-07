@@ -1,19 +1,39 @@
 <div class="container">
-    <h1>Recetario</h1>
+    <h1 class='retroshadow'>Recetario</h1>
     <div class="row">
+        <div class="col-md-12">
+              <!--buscador-->
+            
+              <div class="input-group" id="buscadorRecetas">   
+                    <input type="text" class="form-control buscador" placeholder="Busca receta por nombre, cocinero o ingredientes" [(ngModel)]="searchText">
+                    <span class="input-group-addon glyphicon glyphicon-search"></span>
+                  </div>
+           
+            <!---->
+
+            <!--formulario-->
+            <app-formulario></app-formulario>
+            <!---->  
+           
+        </div>
         <div class="col-md-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Listado de recetas</h3>
+                    <h3 class="panel-title">Listado de recetas</h3>   
                 </div>
                 
                 <div class="panel-body">
-                    <div>
-                        <input [(ngModel)]="searchText" placeholder="Busca tu receta">
+                    
+                    <div class="lista_recetas">
+                            <label for="glutenFilter">
+                            <input type="checkbox" [(ngModel)]="glutenFilter" name="glutenFilter" id="checkbox_gluten">
+                            Recetas Sin Gluten</label>
                         <ul class="list-group">
                            
-                            <li *ngFor="let receta of aReceta | filter: searchText" class="list-group-item" (click)="seleccionarReceta(receta)" >
-                                <a>{{receta.nombre}} </a>
+                            <li *ngFor="let receta of aReceta |filter : searchText : glutenFilter" class="list-group-item" (click)="seleccionarReceta(receta)" >
+                               
+                                <img id="icono_gluten" [src]=" (receta.isGlutenFree) ? 'assets/img/sin_gluten_2.png' : 'assets/img/gluten.png' " alt="info gluten">
+                                <a><b>{{receta.nombre}}</b> {{receta.cocinero}}</a>
                             </li>
                         </ul>
                     </div>
@@ -26,6 +46,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">Detalle receta</h3>
+                     
                 </div>
                 
                 <div class="panel-body">
