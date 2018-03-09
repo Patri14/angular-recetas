@@ -17,49 +17,59 @@
         
           <hr>
           <!--asocio el formulario creado en ts al formulario del html-->
-        <form [formGroup]="formulario" (ngSubmit)="enviarReceta($event)">
-            <form [formGroup]="formulario" (ngSubmit)="onSubmit($event)" novalidate class="form-inline">
+      
 
-                <div class="col-xs-6">
-                  <label class="center-block">Nombre:
-                      <input class="form-control" formControlName="nombre">
-                  </label>                           
-                  <div class="text-danger" *ngIf="formulario.controls.nombre.invalid && formulario.controls.nombre.touched">
-                       *El nombre no es correcto, mínimo 2 letras
-                  </div>
-    
-                  <label class="center-block">Cocinero:
-                      <input class="form-control" formControlName="cocinero">
-                  </label>                           
-                  <div class="text-danger" *ngIf="formulario.controls.cocinero.invalid && formulario.controls.cocinero.touched">
-                       *Cocinero no es correcto, mínimo 5 letras
-                  </div>
-                  <div class="form-group radio">
-                      <h4>Gluten:</h4>
-                      <label class="center-block"><input type="radio" formControlName="gluten" value="si">Si</label>
-                      <label class="center-block"><input type="radio" formControlName="gluten" value="no">No</label>
-                  </div>
-                
-                    
+            <form [formGroup]="formulario" (ngSubmit)="enviarReceta($event)" novalidate>
+            
+
+                <div  [ngClass]="estilosInput(formulario.controls.nombre)">
+                    <label for="nombre" class="control-label">*Nombre:</label>
+                    <input id="nombre" formControlName="nombre" class="form-control" placeholder="Nombre">
+                    <p *ngIf="formulario.controls.nombre.invalid && formulario.controls.nombre.touched" class="text-danger">*Obligatorio, mínimo 2 letras</p>
                 </div>
-                <div class="col-xs-6">
-                  <img [src]="formulario.controls.foto.value" alt="receta nueva" class="img-responsive"/>
-                  <label class="center-block">Foto:
-                      <input class="form-control" formControlName="foto">
-                  </label>            
+    
+                <div [ngClass]="estilosInput(formulario.controls.cocinero)">
+                    <label for="cocinero" class="control-label">Cocinero:</label>
+                    <input id="cocinero" formControlName="cocinero" placeholder="Cocinero" class="form-control">                
+                    <p *ngIf="formulario.controls.cocinero.invalid && formulario.controls.cocinero.touched" class="text-danger">*Mínimo 5 letras</p>
+                </div> 
+                
+                <div class="form-group">
+                    <label for="gluten">Gluten:</label>
+                    <input type="radio" formControlName="gluten" value="true">Si
+                    <input type="radio" formControlName="gluten" value="false">No                    
                 </div> 
 
-                <div class="col-xs-12">
-                    <label class="center-block">Descripción:
-                        <textarea class="form-control" formControlName="descripcion"></textarea>
-                    </label>  
-                </div>
-              </form>
-    
+                <div [ngClass]="estilosInput(formulario.controls.foto)">                    
+                    <label for="foto" class="control-label">Foto:</label>
+                    <input id="foto" formControlName="foto" placeholder="url de la foto" class="form-control">
+                    <p *ngIf="formulario.controls.foto.invalid && formulario.controls.foto.touched" class="text-danger">*Obligatorio, dinos la url de la imagen</p>
+                    <img [src]="formulario.controls.foto.value" alt="Imagen de la receta" class="img-responsive" >
+                </div> 
 
-            <!--deshabilito el boton cuando el formulario no sea válido --> 
-            <input type="submit" [disabled]="!formulario.valid"  class="btn btn-success btn-block" value="Crear"> 
-        </form>
+                <label for="">Ingredientes </label>
+                <span (click)="clickOtroIngrediente()">Añadir Ingrediente</span>                
+                <div formArrayName="ingredientes">                                      
+                    <div *ngFor="let ingrediente of formulario.get('ingredientes').controls; let i = index;">                                       
+                        <div [formGroupName]="i">
+                            <input formControlName="nombre" placeholder="Nuevo Ingrediente" class="ingrediente-input">                        
+                            <span class="glyphicon glyphicon-remove-circle" (click)="clickEliminarIngrediente(i)"></span>
+                        </div>                   
+                    </div>
+                    <p class="text-danger" *ngIf="formulario.controls.ingredientes.invalid && formulario.controls.ingredientes.dirty">*Escribe el nombre del ingrediente</p>                                        
+                </div>
+             
+                <div [ngClass]="estilosInput(formulario.controls.descripcion)">
+                    <label for="descripcion" class="control-label">Descripción:</label>
+                     <textarea formControlName="descripcion" maxlength="500" class="form-control"></textarea>
+                    <p *ngIf="formulario.controls.descripcion.invalid && formulario.controls.descripcion.touched" class="text-danger">*Obligatorio, mínimo 100 letras</p>
+                </div> 
+
+                <input type="submit" [disabled]="!formulario.valid" class="btn btn-success btn-block" value="Crear">
+            </form>
+
+
+       
         </div>
        </div>
     </div>

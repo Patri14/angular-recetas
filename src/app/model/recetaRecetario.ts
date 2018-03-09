@@ -32,7 +32,8 @@ export class RecetaRecetario{
         this.cocinero = cocinero;
         this.descripcion = descripcion;
         this.isGlutenFree = isGlutenFree;
-        this.ingredientes =ingredientes;
+        //si ingredientes tiene contenido lo inicializamos con el contenido, si no con un array vacío
+        this.ingredientes =(ingredientes)?ingredientes:[];
         this.id=id;
 
         //llamada al método

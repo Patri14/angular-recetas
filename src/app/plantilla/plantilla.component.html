@@ -1,0 +1,20 @@
+<div class="container">
+<button (click)="switchUser()">Switch User</button>
+<br>
+<br>
+
+<div *ngIf="admin; then adminTemplate else userTemplate"></div>
+<ng-template #adminTemplate>
+<div *ngIf="admin">
+  <span class="label label-warning">Administrador</span>
+</div>
+</ng-template>
+
+<ng-template #userTemplate>
+<div *ngIf="!admin">
+<span class="label label-default">Usuario</span>
+</div>
+</ng-template>
+
+
+</div>

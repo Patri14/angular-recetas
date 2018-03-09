@@ -1,0 +1,19 @@
+<div class="container-fluid">
+  <div class="intro-2 hm-gradient">
+    <section>
+          <form class="listado">
+            <ul id="me-select-list">
+              <li *ngFor="let todo of todos">
+                <input id="lista" name="lista" type="checkbox">
+                <label for="lista"><span>{{todo.title}}</span>
+                  <span>{{todo.id}}</span>  
+                  <span class="glyphicon glyphicon-trash pull-right" (click)="borrarItem(todos[todo])"></span> 
+                </label> 
+              </li>
+             </ul>
+          </form>
+        </section> 
+
+       
+  </div><!--todos-->
+</div><!--container-->

@@ -45,12 +45,12 @@ getAll() : RecetaRecetario[]{
       return this.aReceta;
   
   }
-
-  /** Crear nueva receta
-   * @param receta : nuevaReceta
+/**
+   * Crear Nueva Receta
+   * @param receta : Receta nueva
    */
-  crear (receta: RecetaRecetario):void{
+  crear( receta: RecetaRecetario ):void{
+    console.log('RecetasService crear %o', receta );
     this.aReceta.unshift(receta);
-
   }
 }
